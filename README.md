@@ -20,3 +20,6 @@ The git add in this file adds all updated or created files to staging, It then a
 After entering your commit message, it commits then pushes your current commit to the origin or remote repository.
 
 **NB:** If is fails to push to the remote repository due to problems with network problems, just `git push` again when you get a stable network and it will work just fine.
+
+### main.h
+The [main.h](https://github.com/mogbonna/printf/blob/main/main.h) file is the file that keeps the function prototypes. Basically every function prototype is in this file.
