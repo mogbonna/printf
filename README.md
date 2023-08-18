@@ -9,3 +9,14 @@ It however teaches how to collaborate with partners and work in groups to be abl
 ##PROJECT CONTRIBUTORS
 -Moses Ogbonna
 -Chamamme Nnyabe
+
+###git_auto
+[This](https://github.com/mogbonna/printf/blob/main/git_auto)file automates the git process.
+-git add
+-git commit -m ""
+-git push
+
+The git add in this file adds all updated or created files to staging, It then ask for user commit message and uses that as your commit message.
+After entering your commit message, it commits then pushes your current commit to the origin or remote repository.
+
+**NB:** If is fails to push to the remote repository due to problems with network problems, just `git push` again when you get a stable network and it will work just fine.
