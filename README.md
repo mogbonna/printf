@@ -11,7 +11,7 @@ It however teaches how to collaborate with partners and work in groups to be abl
 -Chamamme Nnyabe
 
 ### git_auto
-[This](https://github.com/mogbonna/printf/blob/main/git_auto)file automates the git process.
+[This](https://github.com/mogbonna/printf/blob/main/git_auto) file automates the git process.
 -git add
 -git commit -m ""
 -git push
