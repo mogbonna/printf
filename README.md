@@ -7,14 +7,14 @@ The printf project also takes into consideration of testing our knowledge on how
 It however teaches how to collaborate with partners and work in groups to be able to get a problem solved.
 
 ## PROJECT CONTRIBUTORS
--Moses Ogbonna
--Chamamme Nnyabe
+- Moses Ogbonna
+- Chamamme Nnyabe
 
 ### git_auto
 [This](https://github.com/mogbonna/printf/blob/main/git_auto) file automates the git process.
--git add
--git commit -m ""
--git push
+- `git add`
+- `git commit -m "message"`
+- `git push`
 
 The git add in this file adds all updated or created files to staging, It then ask for user commit message and uses that as your commit message.
 After entering your commit message, it commits then pushes your current commit to the origin or remote repository.
