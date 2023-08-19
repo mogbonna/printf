@@ -27,6 +27,10 @@ int _printf(const char *format, ...)
 			{
 				putchar(va_arg(arglist, int));
 			}
+			else if (*format == '%')
+			{
+				putchar ('%');
+			}
 		}
 		else
 		{
