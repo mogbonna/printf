@@ -35,6 +35,15 @@ if (number_form != 0)
 {
 while (*format != '\0')
 {
+if (*format == '%' && (*(format + 1) == ' '))
+{
+return (-1);
+}
+if (*format == '%' && (*(format + 1) == '\0'))
+{
+return (-1);
+}
+
 if (*format == '%' && (*(format + 1) == 'c' || *(format + 1) == 's'))
 {
 format++;
