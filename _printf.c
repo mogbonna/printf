@@ -49,6 +49,10 @@ length++;
 if ('s' == *format && *(format - 1) == '%')
 {
 test = va_arg(rest_arguments, char *);
+if (test == NULL)
+{
+return (-1);
+}
 va_end(rest_arguments);
 while (*test != '\0')
 {
