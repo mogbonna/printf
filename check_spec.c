@@ -2,7 +2,7 @@
 /**
  *check_spec - function to check if there are access specifiers
  *@format: the string to check from
- *Retrun: 0 on not finding and the number on findin
+ *Return: 0 on not finding
  */
 int check_spec(const char *format)
 {

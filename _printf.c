@@ -15,14 +15,11 @@ if (check_spec(format) == 0)
 {
 while (*format != '\0')
 {
-write(1,format,sizeof(*format));
+write(1, format, sizeof(*format));
 length++;
 format++;
 }
 }
-
-/*Printing a string with an access specifier*/
-
 if (check_spec(format) != 0)
 {
 while (*format != '\0')
@@ -44,20 +41,20 @@ test = va_arg(rest_arguments, char *);
 va_end(rest_arguments);
 while (*test != '\0')
 {
-write(1,test,sizeof(*test));
+write(1, test, sizeof(*test));
 length++;
 test++;
 }
 format++;
 }
-if ('%' == *format && *(format -1) == '%')
+if ('%' == *format && *(format - 1) == '%')
 {
 format++;
-write(1,format,sizeof(*format));
+write(1, format, sizeof(*format));
 format++;
 length++;
 }
-write(1,format,sizeof(*format));
+write(1, format, sizeof(*format));
 format++;
 length++;
 }
