@@ -11,6 +11,10 @@ char *test;
 va_list rest_arguments;
 va_start(rest_arguments, format);
 /* Printing a string without an access specifier*/
+if(format == NULL)
+{
+return (-1);
+}
 if (check_spec(format) == 0)
 {
 while (*format != '\0')
