@@ -8,14 +8,21 @@ int _printf(const char *format, ...)
 {
 int length = 0;
 char *test;
+int number_form = check_spec(format);
 va_list rest_arguments;
+va_list args_copy;
 va_start(rest_arguments, format);
+va_copy(args_copy , rest_arguments);
 /* Printing a string without an access specifier*/
 if(format == NULL)
 {
 return (-1);
 }
-if (check_spec(format) == 0)
+if (number_form != 0 && va_arg(args_copy, char *) == NULL)
+{
+return (-1);
+}
+if (number_form == 0)
 {
 while (*format != '\0')
 {
@@ -24,7 +31,7 @@ length++;
 format++;
 }
 }
-if (check_spec(format) != 0)
+if (number_form != 0)
 {
 while (*format != '\0')
 {
