@@ -9,7 +9,7 @@
  */
 int main(void)
 {
-  int hey = _printf("%c you %s",'I',"love");
+  int hey = _printf("%c you %",'I',"love");
  printf("%d", hey);
  
   return (0);

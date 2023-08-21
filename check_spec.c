@@ -7,6 +7,10 @@
 int check_spec(const char *format)
 {
 int spec;
+if (format == NULL)
+{
+return (-1);
+}
 while (*format != '\0')
 {
 if (*format == '%')
