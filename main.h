@@ -11,4 +11,5 @@ int _printf(const char *format, ...);
 int _putchar(char c);
 int check_spec(const char *format);
 const char *check_address(const char *format);
+int print_simple(const char *, int);
 #endif

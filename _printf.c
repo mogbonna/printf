@@ -22,28 +22,18 @@ if (number_form != 0 && va_arg(args_copy, char *) == NULL)
 {
 return (-1);
 }
-if (number_form == 0)
+if (number_form == 0 && !format)
 {
-while (*format != '\0')
-{
-write(1, format, sizeof(*format));
-length++;
-format++;
-}
+length = print_simple(format, length);
 }
 if (number_form != 0)
 {
 while (*format != '\0')
 {
-if (*format == '%' && (*(format + 1) == ' '))
+if (*format == '%' && ((*(format + 1) == ' ') ||  (*(format + 1) == '\0')))
 {
 return (-1);
 }
-if (*format == '%' && (*(format + 1) == '\0'))
-{
-return (-1);
-}
-
 if (*format == '%' && (*(format + 1) == 'c' || *(format + 1) == 's'))
 {
 format++;

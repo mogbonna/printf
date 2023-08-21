@@ -1,0 +1,15 @@
+#include <limits.h>
+#include <stdio.h>
+#include "main.h"
+
+/**
+ * main - Entry point
+ *
+ * Return: Always 0
+ */
+int main(void)
+{
+  int hey = _printf("%s", NULL);
+ printf("%d", hey);
+  return (0);
+}
