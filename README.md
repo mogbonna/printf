@@ -23,3 +23,9 @@ After entering your commit message, it commits then pushes your current commit t
 
 ### main.h
 The [main.h](https://github.com/mogbonna/printf/blob/main/main.h) file is the file that keeps the function prototypes. Basically every function prototype is in this file.
+
+### 1-main.c
+[1-main.c](https://github.com/mogbonna/printf/blob/main/1-main.c) file is the tesiting file and it has all the testing instances of the function.
+
+### _printf.c
+[_printf.c](https://github.com/mogbonna/printf/blob/main/_printf.c) is a file

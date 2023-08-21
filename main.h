@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #ifndef MIAN_H
 #define MAIN_H
 
@@ -43,4 +44,20 @@ char *_memcpy(char *dest, char *src, unsigned int n);
 int print_unsgined_number(unsigned int);
 
 
+=======
+#ifndef MAIN_H
+#define MAIN_H
+
+#include <stdarg.h>
+#include <stdio.h>
+#include <unistd.h>
+#include <string.h>
+
+/*This file is to keep the function prototypes*/
+int _printf(const char *format, ...);
+int _putchar(char c);
+int check_spec(const char *format);
+const char *check_address(const char *format);
+int print_simple(const char *, int);
+>>>>>>> ea2806eead4516f489b30e89f2e5e883dd7416f4
 #endif
