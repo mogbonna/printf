@@ -6,32 +6,46 @@
  * @format: A string containing all the desired characters
  * Return: A total count of the characters printed
  */
+
 int _printf(const char *format, ...)
 {
-	int printed_chars;
-	conver_t f_list[] = {
-		{"c", print_char},
-		{"s", print_string},
-		{"%", print_percent},
-		{"d", print_integer},
-		{"i", print_integer},
-		{"b", print_binary},
-		{"r", print_reversed},
-		{"R", rot13},
-		{"u", unsigned_integer},
-		{"o", print_octal},
-		{"x", print_hex},
-		{"X", print_heX},
-		{NULL, NULL}
-	};
-	va_list arg_list;
+	int count = 0;
+	va_list args;
+	int (*function)(va_list) = NULL;
 
-	if (format == NULL)
-		return (-1);
+	va_start(args, format);
 
-	va_start(arg_list, format);
-	/*Calling parse function*/
-	printed_chars = parse(format, f_list, arg_list);
-	va_end(arg_list);
-	return (printed_chars);
+	while (*format)
+	{
+		if (*format == '%' && *(format + 1) != '%')
+		{
+			format++;
+			function = get_function(format);
+			if (*(format) == '\0')
+				return (-1);
+			else if (function == NULL)
+			{
+				m_char(*(format - 1));
+				m_char(*format);
+				count += 2;
+			}
+			else
+				count += function(args);
+		}
+		else if (*format == '%' && *(format + 1) == '%')
+		{
+			format++;
+			m_char('%');
+			count++;
+		}
+		else
+		{
+			m_char(*format);
+			count++;
+		}
+
+		format++;
+	}
+	va_end(args);
+	return (count);
 }

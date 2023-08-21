@@ -1,45 +1,41 @@
 #ifndef MAIN_H
 #define MAIN_H
 
-#include <unistd.h>
 #include <stdlib.h>
 #include <stdarg.h>
-
+#include <unistd.h>
 /**
-* struct convert - defines a structure for symbols and functions
-*
-* @sym: The operator
-* @f: The function associated
-*/
-struct convert
+ * struct type - connect conversion specifiers with the correct print function
+ * @print: a function pointer for the print functions
+ * @identifier: the conversion specifier
+ */
+typedef struct type
 {
-	char *sym;
-	int (*f)(va_list);
-};
-typedef struct convert conver_t;
+	char *identifier;
+	int (*print)(va_list);
+} type_t;
 
-/*Main functions*/
-int parse(const char *format, conver_t f_list[], va_list arg_list);
-int _printf(const char *format, ...);
-int m_char(char);
-int print_char(va_list);
-int print_string(va_list);
-int print_percent(va_list);
-int print_integer(va_list);
-int print_number(va_list);
-int print_binary(va_list);
-int print_reversed(va_list arg);
-int rot13(va_list);
-int unsigned_integer(va_list);
-int print_octal(va_list list);
-int print_hex(va_list list);
-int print_heX(va_list list);
-
-/*Helper functions*/
-unsigned int base_len(unsigned int, int);
-char *rev_string(char *);
-void m_base(char *str);
-char *_memcpy(char *dest, char *src, unsigned int n);
-int print_unsgined_number(unsigned int);
+int m_char(char c);
+int (*get_function(const char *specifier))(va_list);
+int _printf(const char *, ...);
+int _strlen(char *);
+int print_rev(va_list args);
+int rot13(va_list args);
+int print_number(unsigned int n);
+int countDigits(unsigned int num);
+int countOctal(unsigned int num);
+int countBinary(unsigned int num);
+int print_b(va_list args);
+int print_o(va_list args);
+int print_d(va_list args);
+int print_x(va_list args);
+void print_lowerHex(unsigned int num, int *count);
+int print_X(va_list args);
+void print_upperHex(unsigned int num, int *count);
+int print_p(va_list args);
+int print_s(va_list args);
+int print_c(va_list args);
+int print_u(va_list args);
+int print_F(va_list args);
 
 #endif
