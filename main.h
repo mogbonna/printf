@@ -17,7 +17,7 @@ typedef struct type
 
 int m_char(char c);
 int (*get_function(const char *specifier))(va_list);
-int _printf(const char *, ...);
+int _printf(const char *format, ...);
 int _strlen(char *);
 int print_rev(va_list args);
 int rot13(va_list args);
