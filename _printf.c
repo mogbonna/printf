@@ -14,9 +14,13 @@ va_list args_copy;
 va_start(rest_arguments, format);
 va_copy(args_copy , rest_arguments);
 /* Printing a string without an access specifier*/
-if(format == NULL)
+if(!format)
 {
 return (-1);
+}
+if (number_form == -1)
+{
+return (number_form);
 }
 if (number_form != 0 && va_arg(args_copy, char *) == NULL)
 {
@@ -30,7 +34,7 @@ if (number_form != 0)
 {
 while (*format != '\0')
 {
-if (*format == '%' && ((*(format + 1) == ' ') ||  (*(format + 1) == '\0')))
+if (*format == '%' && ((*(format + 1) == ' ') ||  (*(format + 1) == '\0') || (*(format + 1) == '\n')))
 {
 return (-1);
 }

@@ -9,7 +9,8 @@
  */
 int main(void)
 {
-  int hey = _printf("%s", NULL);
+  int hey = _printf("%c you %s",'I',"love");
  printf("%d", hey);
+ 
   return (0);
 }

@@ -13,6 +13,10 @@ if (*format == '%')
 {
 spec++;
 }
+if (*format == '%' && ((*(format + 1) == ' ') ||  (*(format + 1) == '\0') || (*(format + 1) == '\n')))
+{
+return (-1);
+}
 format++;
 }
 return (spec);
