@@ -1,66 +1,37 @@
 #include "main.h"
+
 /**
- *_printf - function implementation for the std printf
- *@format: the string to be used
- *Return: 0 on success
+ * _printf - Receives the main string and all the necessary parameters to
+ * print a formated string
+ * @format: A string containing all the desired characters
+ * Return: A total count of the characters printed
  */
 int _printf(const char *format, ...)
 {
-int length = 0;
-char *test;
-va_list rest_arguments;
-va_start(rest_arguments, format);
-/* Printing a string without an access specifier*/
-if (check_spec(format) == 0)
-{
-while (*format != '\0')
-{
-_putchar(*format);
-length++;
-format++;
-}
-}
+	int printed_chars;
+	conver_t f_list[] = {
+		{"c", print_char},
+		{"s", print_string},
+		{"%", print_percent},
+		{"d", print_integer},
+		{"i", print_integer},
+		{"b", print_binary},
+		{"r", print_reversed},
+		{"R", rot13},
+		{"u", unsigned_integer},
+		{"o", print_octal},
+		{"x", print_hex},
+		{"X", print_heX},
+		{NULL, NULL}
+	};
+	va_list arg_list;
 
-/*Printing a string with an access specifier*/
+	if (format == NULL)
+		return (-1);
 
-if (check_spec(format) != 0)
-{
-while (*format != '\0')
-{
-if (*format == '%' && (*(format + 1) == 'c' || *(format + 1) == 's'))
-{
-format++;
-}
-if ('c' == *format && *(format - 1) == '%')
-{
-_putchar(va_arg(rest_arguments, int));
-va_end(rest_arguments);
-format++;
-length++;
-}
-if ('s' == *format && *(format - 1) == '%')
-{
-test = va_arg(rest_arguments, char *);
-va_end(rest_arguments);
-while (*test != '\0')
-{
-_putchar(*test);
-length++;
-test++;
-}
-format++;
-}
-if ('%' == *format && *(format -1) == '%')
-{
-format++;
-_putchar(*format);
-format++;
-length++;
-}
-_putchar(*format);
-format++;
-length++;
-}
-}
-return (length);
+	va_start(arg_list, format);
+	/*Calling parse function*/
+	printed_chars = parse(format, f_list, arg_list);
+	va_end(arg_list);
+	return (printed_chars);
 }
