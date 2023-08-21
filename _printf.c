@@ -22,7 +22,7 @@ if (number_form != 0 && va_arg(args_copy, char *) == NULL)
 {
 return (-1);
 }
-if (number_form == 0 && !format)
+if (number_form == 0 && format != NULL)
 {
 length = print_simple(format, length);
 }
