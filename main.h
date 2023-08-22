@@ -28,6 +28,20 @@ int print_char(va_list);
 int print_per(va_list);
 int print_int_dec(va_list);
 int str_len(char *);
+/**
+ * struct type - connect conversion specifiers with the correct print function
+ * @print: a function pointer for the print functions
+ * @identifier: the conversion specifier
+ */
+typedef struct type
+{
+	char *identifier;
+	int (*print)(va_list);
+} type_t;
+
+int m_char(char c);
+int (*get_function(const char *specifier))(va_list);
+int _printf(const char *format, ...);
 int _strlen(char *);
 int print_rev(va_list args);
 int rot13(va_list args);
