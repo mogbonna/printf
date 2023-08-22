@@ -9,43 +9,33 @@
 
 int _printf(const char *format, ...)
 {
-	int count = 0;
-	va_list args;
-	int (*function)(va_list) = NULL;
-
-	va_start(args, format);
-
-	while (*format)
-	{
-		if (*format == '%' && *(format + 1) != '%')
-		{
-			format++;
-			function = get_function(format);
-			if (*(format) == '\0')
-				return (-1);
-			else if (function == NULL)
-			{
-				m_char(*(format - 1));
-				m_char(*format);
-				count += 2;
-			}
-			else
-				count += function(args);
-		}
-		else if (*format == '%' && *(format + 1) == '%')
-		{
-			format++;
-			m_char('%');
-			count++;
-		}
-		else
-		{
-			m_char(*format);
-			count++;
-		}
-
-		format++;
-	}
-	va_end(args);
-	return (count);
+int len = 0, i;
+va_list args;
+format_spec fm_arr[] = {
+{"%s", print_strings},
+{"%c", print_char},
+{"%%", print_per},{"%i", print_int_dec},{"%d", print_int_dec}
+};
+va_start(args, format);
+if (format == NULL ||  (format[0] == '%' && (format[1] == ('\0' || ' ' || '\n'))))
+{
+return (-1);
+}
+while (*format != '\0')
+{
+for (i = 0; i < 5 ; i++)
+{
+if (*format == fm_arr[i].spec[0] && *(format + 1) == fm_arr[i].spec[1])
+{
+len +=fm_arr[i].fun_ptr(args);
+format++;
+format++;
+}
+}
+_putchar(*format);
+format++;
+len++;
+}
+va_end(args);
+return (len);
 }
