@@ -2,6 +2,9 @@
 ./'#*
 main.c
 a.out
+<<<<<<< HEAD
+=======
 git_auto
 1-main.c
 test
+>>>>>>> ea2806eead4516f489b30e89f2e5e883dd7416f4

@@ -1,9 +1,12 @@
 #include "main.h"
+
 /**
- *_printf - function implementation for the std printf
- *@format: the string to be used
- *Return: 0 on success
+ * _printf - Receives the main string and all the necessary parameters to
+ * print a formated string
+ * @format: A string containing all the desired characters
+ * Return: A total count of the characters printed
  */
+
 int _printf(const char *format, ...)
 {
 int len = 0, i;
